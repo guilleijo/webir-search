@@ -35,7 +35,10 @@ class App extends Component {
               fuzziness={2}
               placeholder='Buscar por marca o modelo'
               style={{
-                padding: '10px',
+                paddingTop: '5px',                
+                paddingBottom: '5px',
+                paddingLeft: '15px',
+                paddingRight: '15px',
                 marginTop: '5px'
               }}
             />
@@ -46,7 +49,10 @@ class App extends Component {
                 dataField='brand.keyword'
                 placeholder='Seleccionar marca'
                 style={{
-                  padding: '10px',
+                  paddingTop: '5px',                  
+                  paddingBottom: '5px',
+                  paddingLeft: '15px',
+                  paddingRight: '15px',
                   marginTop: '5px'
                 }}
               />
@@ -69,7 +75,10 @@ class App extends Component {
                   ],
                 }}
                 style={{
-                  padding: '10px',
+                  paddingTop: '5px',                  
+                  paddingBottom: '5px',
+                  paddingLeft: '15px',
+                  paddingRight: '15px',
                   marginTop: '5px'
                 }}
               />
@@ -81,7 +90,7 @@ class App extends Component {
                 dataField='price'
                 title='Precio'
                 range={{
-                  start: 3000,
+                  start: 0,
                   end: 50000,
                 }}
                 defaultValue={{
@@ -109,8 +118,10 @@ class App extends Component {
                 URLParams={false}
                 includeNullValues
                 style={{
-                  paddingLeft: '30px',
-                  paddingRight: '30px',
+                  paddingTop: '5px',                  
+                  paddingBottom: '5px',
+                  paddingLeft: '15px',
+                  paddingRight: '15px',
                   marginTop: '5px',
                   marginBottom: '5px'
                 }}
@@ -118,7 +129,7 @@ class App extends Component {
             </div>
 
             <div className='col'>
-              <MultiList
+              <SingleList
                 showSearch={false}
                 componentId='Condición'
                 dataField='condition.keyword'
@@ -134,7 +145,10 @@ class App extends Component {
                   ],
                 }}
                 style={{
-                  padding: '10px',
+                  paddingTop: '5px',                  
+                  paddingBottom: '5px',
+                  paddingLeft: '15px',
+                  paddingRight: '15px',
                   marginTop: '5px'
                 }}
               />
@@ -157,7 +171,10 @@ class App extends Component {
                   ],
                 }}
                 style={{
-                  padding: '10px',
+                  paddingTop: '5px',                  
+                  paddingBottom: '5px',
+                  paddingLeft: '15px',
+                  paddingRight: '15px',
                   marginTop: '5px'
                 }}
               />
@@ -180,7 +197,10 @@ class App extends Component {
                   ],
                 }}
                 style={{
-                  padding: '10px',
+                  paddingTop: '5px',                  
+                  paddingBottom: '5px',
+                  paddingLeft: '15px',
+                  paddingRight: '15px',
                   marginTop: '5px'
                 }}
               />
@@ -190,7 +210,10 @@ class App extends Component {
               showClearAll={true}
               clearAllLabel='Clear filters'
               style={{
-                padding: '10px',
+                paddingTop: '5px',                
+                paddingBottom: '5px',
+                paddingLeft: '15px',
+                paddingRight: '15px',
                 marginTop: '5px'
               }}
             />
