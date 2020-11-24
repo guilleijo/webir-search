@@ -34,6 +34,7 @@ while offset < 1000:
             car_price = result["price"]
             car_price_currency = result["currency_id"]
             car_attributes = result["attributes"]
+            publication_thumbnail = result["thumbnail"]
 
             for attribute in car_attributes:
                 attribute_id = attribute["id"]
@@ -62,6 +63,7 @@ while offset < 1000:
                 "condition": car_condition,
                 "publication_link": publication_link,
                 "publication_title": publication_title,
+                "thumbnail": publication_thumbnail,
             }
 
             json_document = json.dumps(publication_document)
