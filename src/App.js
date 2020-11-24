@@ -9,6 +9,7 @@ import {
   MultiDropdownList,
   RangeInput,
   MultiList,
+  SingleList,
 } from '@appbaseio/reactivesearch';
 
 const { ResultCardsWrapper } = ReactiveList;
@@ -29,108 +30,89 @@ class App extends Component {
           <div style={{ display: 'flex', flexDirection: 'column', width: '30%' }}>
 
             <DataSearch
-              componentId='SearchFilter'
+              componentId='Búsqueda'
               dataField={['model', 'brand']}
               fuzziness={2}
               placeholder='Buscar por marca o modelo'
               style={{
-                padding: "5px",
-                marginTop: "10px"
+                padding: '10px',
+                marginTop: '5px'
               }}
             />
 
             <div className='col'>
               <MultiDropdownList
-                componentId='BrandSensor'
+                componentId='Marca'
                 dataField='brand.keyword'
                 placeholder='Seleccionar marca'
                 style={{
-                  padding: "5px",
-                  marginTop: "10px"
+                  padding: '10px',
+                  marginTop: '5px'
                 }}
               />
             </div>
 
             <div className='col'>
-              <MultiList
+              <SingleList
                 showSearch={false}
-                componentId="CurrencySensor"
-                dataField="currency.keyword"
-                title="Moneda"
+                componentId='CurrencySensor'
+                dataField='currency.keyword'
+                title='Moneda'
                 react={{
                   and: [
-                    'SearchFilter',
-                    'BrandSensor',
-                    'RangeInputSensor',
-                    'ConditionSensor',
-                    'FuelSensor',
-                    'DoorsSensor',
+                    'Búsqueda',
+                    'Marca',
+                    'Precio',
+                    'Condición',
+                    'Combustible',
+                    'Puertas',
                   ],
                 }}
                 style={{
-                  padding: "5px",
-                  marginTop: "10px"
+                  padding: '10px',
+                  marginTop: '5px'
                 }}
               />
             </div>
 
-            <RangeInput
-              componentId='RangeInputSensor'
-              dataField='price'
-              title='Precio'
-              range={{
-                start: 3000,
-                end: 50000,
-              }}
-              defaultValue={{
-                start: 0,
-                end: 50000,
-              }}
-              rangeLabels={{
-                start: '$0',
-                end: '$50000',
-              }}
-              showFilter={true}
-              stepValue={1}
-              showHistogram={true}
-              interval={2}
-              react={{
-                and: [
-                  'SearchFilter',
-                  'BrandSensor',
-                  'CurrencySensor',
-                  'ConditionSensor',
-                  'FuelSensor',
-                  'DoorsSensor',
-                ],
-              }}
-              URLParams={false}
-              includeNullValues
-              style={{
-                padding: "5px",
-                marginTop: "10px"
-              }}
-            />
-
             <div className='col'>
-              <MultiList
-                showSearch={false}
-                componentId="ConditionSensor"
-                dataField="condition.keyword"
-                title="Condición"
+              <RangeInput
+                componentId='Precio'
+                dataField='price'
+                title='Precio'
+                range={{
+                  start: 3000,
+                  end: 50000,
+                }}
+                defaultValue={{
+                  start: 0,
+                  end: 50000,
+                }}
+                rangeLabels={{
+                  start: '$0',
+                  end: '$50000',
+                }}
+                showFilter={true}
+                stepValue={1}
+                showHistogram={true}
+                interval={2}
                 react={{
                   and: [
-                    'SearchFilter',
-                    'BrandSensor',
+                    'Búsqueda',
+                    'Marca',
                     'CurrencySensor',
-                    'RangeInputSensor',
-                    'FuelSensor',
-                    'DoorsSensor',
+                    'Condición',
+                    'Combustible',
+                    'Puertas',
                   ],
                 }}
+                URLParams={false}
+                includeNullValues
                 style={{
-                  padding: "5px",
-                  marginTop: "10px"
+                  paddingLeft: '30px',
+                  paddingRight: '30px',
+                  marginTop: '5px',
+                  marginBottom: '5px'
                 }}
               />
             </div>
@@ -138,22 +120,22 @@ class App extends Component {
             <div className='col'>
               <MultiList
                 showSearch={false}
-                componentId="FuelSensor"
-                dataField="fuel_type.keyword"
-                title="Tipo de combustible"
+                componentId='Condición'
+                dataField='condition.keyword'
+                title='Condición'
                 react={{
                   and: [
-                    'SearchFilter',
-                    'BrandSensor',
+                    'Búsqueda',
+                    'Marca',
                     'CurrencySensor',
-                    'RangeInputSensor',
-                    'ConditionSensor',
-                    'DoorsSensor',
+                    'Precio',
+                    'Combustible',
+                    'Puertas',
                   ],
                 }}
                 style={{
-                  padding: "5px",
-                  marginTop: "10px"
+                  padding: '10px',
+                  marginTop: '5px'
                 }}
               />
             </div>
@@ -161,22 +143,45 @@ class App extends Component {
             <div className='col'>
               <MultiList
                 showSearch={false}
-                componentId="DoorsSensor"
-                dataField="doors.keyword"
-                title="Puertas"
+                componentId='Combustible'
+                dataField='fuel_type.keyword'
+                title='Tipo de combustible'
                 react={{
                   and: [
-                    'SearchFilter',
-                    'BrandSensor',
+                    'Búsqueda',
+                    'Marca',
                     'CurrencySensor',
-                    'RangeInputSensor',
-                    'ConditionSensor',
-                    'FuelSensor',
+                    'Precio',
+                    'Condición',
+                    'Puertas',
                   ],
                 }}
                 style={{
-                  padding: "5px",
-                  marginTop: "10px"
+                  padding: '10px',
+                  marginTop: '5px'
+                }}
+              />
+            </div>
+
+            <div className='col'>
+              <MultiList
+                showSearch={false}
+                componentId='Puertas'
+                dataField='doors.keyword'
+                title='Puertas'
+                react={{
+                  and: [
+                    'Búsqueda',
+                    'Marca',
+                    'CurrencySensor',
+                    'Precio',
+                    'Condición',
+                    'Combustible',
+                  ],
+                }}
+                style={{
+                  padding: '10px',
+                  marginTop: '5px'
                 }}
               />
             </div>
@@ -185,8 +190,8 @@ class App extends Component {
               showClearAll={true}
               clearAllLabel='Clear filters'
               style={{
-                padding: "5px",
-                marginTop: "10px"
+                padding: '10px',
+                marginTop: '5px'
               }}
             />
 
@@ -195,23 +200,36 @@ class App extends Component {
           <ReactiveList
             componentId='results'
             dataField='name'
-            size={8}
+            size={9}
             pagination={true}
             react={{
               and: [
-                'SearchFilter',
-                'BrandSensor',
+                'Búsqueda',
+                'Marca',
                 'CurrencySensor',
-                'RangeInputSensor',
-                'ConditionSensor',
-                'FuelSensor',
-                'DoorsSensor',
+                'Precio',
+                'Condición',
+                'Combustible',
+                'Puertas',
               ]
             }}
             style={{
-              width: "70%",
-              textAlign: "center"
+              width: '70%',
+              textAlign: 'center'
             }}
+            defaultSortOption='Menor precio'
+            sortOptions={[
+              {
+                label: 'Menor precio',
+                dataField: 'price',
+                sortBy: 'asc',
+              },
+              {
+                label: 'Mayor precio',
+                dataField: 'price',
+                sortBy: 'desc',
+              },
+            ]}
 
 
             render={({ data }) => (
