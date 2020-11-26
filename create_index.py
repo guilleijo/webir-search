@@ -51,11 +51,14 @@ while offset < 1000:
                     car_kilometers = attribute_value
                 elif attribute_id == "MODEL":
                     car_model = attribute_value
+                elif attribute_id == "VEHICLE_YEAR":
+                    car_year = attribute_value
 
             publication_document = {
                 "brand": car_brand,
                 "model": car_model,
                 "doors": car_doors,
+		"year" : car_year,
                 "kilometers": car_kilometers,
                 "fuel_type": car_fuel_type,
                 "price": car_price,
