@@ -35,7 +35,7 @@ class App extends Component {
               fuzziness={2}
               placeholder='Buscar por marca o modelo'
               style={{
-                paddingTop: '5px',                
+                paddingTop: '5px',
                 paddingBottom: '5px',
                 paddingLeft: '15px',
                 paddingRight: '15px',
@@ -49,11 +49,48 @@ class App extends Component {
                 dataField='brand.keyword'
                 placeholder='Seleccionar marca'
                 style={{
-                  paddingTop: '5px',                  
+                  paddingTop: '5px',
                   paddingBottom: '5px',
                   paddingLeft: '15px',
                   paddingRight: '15px',
                   marginTop: '5px'
+                }}
+                react={{
+                  and: [
+                    'Búsqueda',
+                    'CurrencySensor',
+                    'Precio',
+                    'Condición',
+                    'Combustible',
+                    'Puertas',
+                    'Año',
+                  ]
+                }}
+              />
+            </div>
+
+            <div className='col'>
+              <MultiDropdownList
+                componentId='Año'
+                dataField='year.keyword'
+                placeholder='Seleccionar año'
+                style={{
+                  paddingTop: '5px',
+                  paddingBottom: '5px',
+                  paddingLeft: '15px',
+                  paddingRight: '15px',
+                  marginTop: '5px'
+                }}
+                react={{
+                  and: [
+                    'Búsqueda',
+                    'Marca',
+                    'CurrencySensor',
+                    'Precio',
+                    'Condición',
+                    'Combustible',
+                    'Puertas',
+                  ]
                 }}
               />
             </div>
@@ -72,10 +109,11 @@ class App extends Component {
                     'Condición',
                     'Combustible',
                     'Puertas',
+                    'Año',
                   ],
                 }}
                 style={{
-                  paddingTop: '5px',                  
+                  paddingTop: '5px',
                   paddingBottom: '5px',
                   paddingLeft: '15px',
                   paddingRight: '15px',
@@ -113,12 +151,13 @@ class App extends Component {
                     'Condición',
                     'Combustible',
                     'Puertas',
+                    'Año',
                   ],
                 }}
                 URLParams={false}
                 includeNullValues
                 style={{
-                  paddingTop: '5px',                  
+                  paddingTop: '5px',
                   paddingBottom: '5px',
                   paddingLeft: '15px',
                   paddingRight: '15px',
@@ -142,10 +181,11 @@ class App extends Component {
                     'Precio',
                     'Combustible',
                     'Puertas',
+                    'Año',
                   ],
                 }}
                 style={{
-                  paddingTop: '5px',                  
+                  paddingTop: '5px',
                   paddingBottom: '5px',
                   paddingLeft: '15px',
                   paddingRight: '15px',
@@ -168,10 +208,11 @@ class App extends Component {
                     'Precio',
                     'Condición',
                     'Puertas',
+                    'Año',
                   ],
                 }}
                 style={{
-                  paddingTop: '5px',                  
+                  paddingTop: '5px',
                   paddingBottom: '5px',
                   paddingLeft: '15px',
                   paddingRight: '15px',
@@ -194,10 +235,11 @@ class App extends Component {
                     'Precio',
                     'Condición',
                     'Combustible',
+                    'Año',
                   ],
                 }}
                 style={{
-                  paddingTop: '5px',                  
+                  paddingTop: '5px',
                   paddingBottom: '5px',
                   paddingLeft: '15px',
                   paddingRight: '15px',
@@ -210,7 +252,7 @@ class App extends Component {
               showClearAll={true}
               clearAllLabel='Clear filters'
               style={{
-                paddingTop: '5px',                
+                paddingTop: '5px',
                 paddingBottom: '5px',
                 paddingLeft: '15px',
                 paddingRight: '15px',
@@ -234,6 +276,7 @@ class App extends Component {
                 'Condición',
                 'Combustible',
                 'Puertas',
+                'Año',
               ]
             }}
             style={{
@@ -269,7 +312,7 @@ class App extends Component {
                       />
                       <ResultCard.Title
                         dangerouslySetInnerHTML={{
-                          __html: item.brand + ' - ' + item.model
+                          __html: item.brand + ' - ' + item.model + ' (' + item.year + ')'
                         }}
                       />
                       <ResultCard.Description>
